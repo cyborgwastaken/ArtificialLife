@@ -112,11 +112,3 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
-
-# NEX//ION project-specific: large third-party asset packs (multi-GB, individual
-# files over GitHub's 100MB limit, and likely license-restricted for redistribution).
-# Re-import from the Asset Store / vendor source on a new machine instead of pulling
-# via git. If a repo history rewrite is ever needed to purge this from an earlier
-# accidental commit, that's a separate deliberate step — don't do it as a side effect
-# of routine work.
-/Assets/Imported/
