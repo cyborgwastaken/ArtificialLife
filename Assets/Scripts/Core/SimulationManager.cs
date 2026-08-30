@@ -14,9 +14,11 @@ namespace ArtificialLife
         [SerializeField] EnvironmentManager _environment;
         public EnvironmentManager Environment => _environment;
 
-
         public bool Paused;
         public float SpeedMultiplier = 1f;
+
+        int _nextGenomeId;
+        public int NextGenomeId() => _nextGenomeId++;
 
         readonly List<Organism> _pool = new List<Organism>();
         double _accumulator;
@@ -24,16 +26,13 @@ namespace ArtificialLife
         void Awake()
         {
             Rng = new Rng(_settings.Seed);
-
             _environment.Setup(_settings, Rng);
             _environment.ResetWorld();
 
-
-            // MILESTONE 1: just drop 10 organisms in and watch them wander and die.
             for (int i = 0; i < _settings.PopulationSize; i++)
             {
-                Vector3 pos = RandomPointInWorld();
-                SpawnOrganism(pos, _settings.StartEnergy, 0);
+                Genome g = Genome.Random(_settings.LayerSizes, Rng, NextGenomeId(), 0);
+                SpawnOrganism(g, _environment.RandomPointInWorld(), _settings.StartEnergy, 0);
             }
         }
 
@@ -71,19 +70,18 @@ namespace ArtificialLife
                     organisms[i].Step(dt);
         }
 
-
-        public Organism SpawnOrganism(Vector3 position, float startEnergy, int generation)
+        public Organism SpawnOrganism(Genome genome, Vector3 position, float startEnergy, int generation)
         {
             Organism o;
             int last = _pool.Count - 1;
             if (last >= 0) { o = _pool[last]; _pool.RemoveAt(last); }
             else           { o = Instantiate(_organismPrefab, transform); }
 
-            o.Spawn(position, startEnergy, generation, _settings, Rng, _environment);
-            _environment.Organisms.Add(o);     // replaces the old _organisms list
-
+            o.Spawn(genome, position, startEnergy, generation, _settings, _environment, Rng, this);
+            _environment.Organisms.Add(o);
             return o;
         }
+
 
         Vector3 RandomPointInWorld()
         {
