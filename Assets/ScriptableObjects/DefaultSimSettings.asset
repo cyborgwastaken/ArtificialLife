@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1edc7a79b6afe4f9f28d5b280a804b, type: 3}
+  m_Name: DefaultSimSettings
+  m_EditorClassIdentifier: ArtificialLife::ArtificialLife.SimulationSettings
+  Seed: 1234456
+  DeterministicLockstep: 0
+  LockstepStepsPerFrame: 4
+  MaxStepsPerFrame: 400
+  SimStepSeconds: 0.016
+  WorldRadius: 40
+  PopulationSize: 2
+  GenerationDuration: 45
+  AllowInLifeReproduction: 1
+  FoodTarget: 120
+  FoodSpawnPerSecond: 8
+  FoodEnergy: 25
+  StartEnergy: 50
+  MaxEnergy: 500
+  MoveSpeedMax: 6
+  TurnSpeedMax: 180
+  MetabolismRate: 1.5
+  MoveCostRate: 3
+  MaxLifespan: 60
+  VisionRange: 14
+  SensorHalfConeDegrees: 18
+  EatRadius: 1.2
+  ReproductionThreshold: 85
+  ReproductionCost: 45
+  OffspringStartEnergy: 35
+  InputCount: 8
+  HiddenCount: 6
+  OutputCount: 3
+  MutationRate: 0.06
+  MutationStrength: 0.12
+  TournamentK: 3
+  EliteCount: 2
+  FitnessPerSecondAlive: 1
+  FitnessPerFood: 5
+  FitnessPerOffspring: 25
