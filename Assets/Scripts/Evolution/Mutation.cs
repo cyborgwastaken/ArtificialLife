@@ -25,7 +25,7 @@ namespace ArtificialLife
         public static Genome Mutated(Genome parent, Rng rng, float rate, float strength,
                                      int childId, int generation)
         {
-            var child = new Genome(parent.LayerSizes, parent.Genes);
+            var child = new Genome(parent.LayerSizes, parent.Genes); // ctor already deep-copies
             MutateInPlace(child.Genes, rng, rate, strength);
             child.Id = childId;
             child.ParentId = parent.Id;

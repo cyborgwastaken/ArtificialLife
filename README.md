@@ -71,14 +71,3 @@ Assets/Tests/   ArtificialLife.Tests EditMode assembly — NeuralNetworkTests
 Design choices: transform-based motion on the XZ plane (no Rigidbody/PhysX), one central
 fixed `1/60 s` tick (nothing else uses `Update()` for sim logic), one seeded RNG threaded
 everywhere (never `UnityEngine.Random`), brain as plain serialisable data.
-
-## Documentation
-
-Two documents live in `../docs/` (one directory up from this repo):
-
-- **`Artificial Life — Unity Evolution Simulation.md`** — the full design doc: goals, the long-term
-  vision, every planned system through predators / species / NEAT.
-- **`guide.md`** — the build manual for the prototype: step-by-step instructions, complete code for
-  every file, and the neural-network theory worked from scratch (neuron model, activation
-  functions, forward pass by hand, why a genetic algorithm replaces backprop, weight
-  initialisation). Milestone checkpoints match the status table above.

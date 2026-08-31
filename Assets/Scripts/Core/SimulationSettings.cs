@@ -65,6 +65,11 @@ namespace ArtificialLife
         public float FitnessPerFood = 5f;
         public float FitnessPerOffspring = 25f;
 
+        [Header("Save / resume")]
+        public bool LoadOnStart = true;
+        public bool SaveOnQuit = true;
+
+
         public int[] LayerSizes => new[] { InputCount, HiddenCount, OutputCount };
     }
 }
